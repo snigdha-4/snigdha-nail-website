@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snigdha's Nail Designs</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            color: #333;
+            background: linear-gradient(-45deg, #E0FFFF, #FFDAB9, #E6E6FA); /* Aqua, Peach, Lavender gradient */
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background: linear-gradient(-45deg, #E0FFFF, #FFDAB9, #E6E6FA);
+            }
+            33% {
+                background: linear-gradient(-45deg, #FFDAB9, #E6E6FA, #E0FFFF);
+            }
+            66% {
+                background: linear-gradient(-45deg, #E6E6FA, #E0FFFF, #FFDAB9);
+            }
+            100% {
+                background: linear-gradient(-45deg, #E0FFFF, #FFDAB9, #E6E6FA);
+            }
+        }
+
+        header {
+            background-color: #ff80ab; /* Hot pink */
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-family: 'Dancing Script', cursive; /* Apply custom font */
+            font-size: 4rem; /* Slightly larger for impact */
+            font-weight: 700; /* Make it bold */
+            animation: shimmer 2s infinite alternate; /* Apply shimmer animation */
+        }
+
+        @keyframes shimmer {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+            }
+        }
+        .container {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .gallery-item-caption {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            background-color: #333;
+            color: white;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem; /* Smaller font size for mobile */
+            }
+
+            .gallery {
+                grid-template-columns: 1fr; /* Stack items on mobile */
+            }
+
+            .container {
+                padding: 1rem; /* Reduce padding on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Snigdha's Nail Designs</h1>
+    </header>
+    <div class="container">
+        <div class="gallery" id="gallery">
+            <!-- Placeholder Images -->
+            <div class="gallery-item">
+                <img src="./images/nail1.png" alt="Nail Design 1">
+                <div class="gallery-item-caption">Into the Ocean</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Nail Design 2">
+                <div class="gallery-item-caption">Design 2</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Nail Design 3">
+                <div class="gallery-item-caption">Design 3</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Nail Design 4">
+                <div class="gallery-item-caption">Design 4</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Nail Design 5">
+                <div class="gallery-item-caption">Design 5</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Nail Design 6">
+                <div class="gallery-item-caption">Design 6</div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Snigdha's Nail Designs</p>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-button">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            let sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            document.body.appendChild(sparkle);
+
+            sparkle.style.left = e.clientX + 'px';
+            sparkle.style.top = e.clientY + 'px';
+
+            // Random size for variety
+            let size = Math.random() * 10 + 5; // Between 5px and 15px
+            sparkle.style.width = size + 'px';
+            sparkle.style.height = size + 'px';
+
+            // Random color from a pastel palette
+            let colors = ['#FFDAB9', '#E0FFFF', '#E6E6FA', '#FFC0CB', '#ADD8E6'];
+            sparkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+            // Remove sparkle after animation
+            sparkle.addEventListener('animationend', function() {
+                sparkle.remove();
+            });
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeButton = document.querySelector('.close-button');
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                lightbox.style.display = 'block';
+                lightboxImg.src = this.src;
+            });
+        });
+
+        closeButton.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+        });
+
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    </script>
+
+    <style>
+        /* Lightbox styles */
+        .lightbox {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 10000; /* Sit on top */
+            padding-top: 60px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .sparkle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+            animation: sparkle-fade-out 1s forwards;
+            pointer-events: none; /* Allow clicking through sparkles */
+            z-index: 9999; /* Ensure sparkles are on top */
+        }
+
+        @keyframes sparkle-fade-out {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+    </style>
+</body>
+</html>
